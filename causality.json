@@ -1,5 +1,5 @@
 {
-  "season": {
+  "theme": {
     "name": "ordinaryworld",
     "style": "black",
     "version": "0.1"
@@ -12,15 +12,9 @@
   },
 
   "logo": "images/logo.png",
+  "logoLink": "http://www.google.com",
   "title": "GeoApp Framework",
-  "subtitle": "An app framework address in GIS.",
-  "links": [{
-    "url": "http://openlayers.org/",
-    "label": "openlayers"
-  }, {
-    "url": "https://geohey.com/dashboard",
-    "label": "geohey"
-  }],
+
   "bodhiOnTouch": {
     "panel": {
       "uri": "stem/TouchableBodhiPanel"
@@ -28,16 +22,16 @@
     "bodhis": [{
       "uri": "bodhis/HomeButton/Bodhi",
       "position": {
-        "left": 20,
-        "top": 110,
+        "left": 8,
+        "top": 70,
         "zIndex": 0,
         "relativeTo": "map"
       }
     }, {
       "uri": "bodhis/MyLocation/Bodhi",
       "position": {
-        "left": 50,
-        "top": 110,
+        "left": 9,
+        "top": 107,
         "zIndex": 0,
         "relativeTo": "map"
       }

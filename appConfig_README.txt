@@ -1,14 +1,14 @@
-//This file describes the format of the causality.json.
+//This file describes the format of the appCausality.json.
 
 {
   //Required
-  "season": {
+  "theme": {
     "name": "ordinaryworld",
 
-    //This property stores all of the season's styles. The app displays the first style by default.
+    //This property stores all of the theme's styles. The app displays the first style by default.
     "style": ,
 
-    //Optional. It is the season version.
+    //Optional. It is the theme version.
     "version": "1.1"
   },
 
@@ -30,6 +30,8 @@
 
   //Optional. The logo/title/subtitle of app. Default value is default logo/"HTML5 app"/"A configurable web application".
   "logo": "",
+  //Optional. Go to the url when click the logo image.
+  "logoLink": ""
   "title": "GeoApp Framework",
   "subtitle": "A app framework address in GIS",
 

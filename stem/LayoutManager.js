@@ -10,7 +10,7 @@ define(["jquery", "stem/MapManager", "stem/BodhiManager", "stem/utils"],
 
   clazz.prototype.onCausalityLoaded = function(causality) {
     this.appCausality = causality;
-    this._loadSeasonStyles(causality.season);
+    this._loadSeasonStyles(causality.theme);
 
     this.mapManager = MapManager.getInstance({
       'appCausality': this.appCausality
@@ -27,19 +27,19 @@ define(["jquery", "stem/MapManager", "stem/BodhiManager", "stem/utils"],
     this.loadOnTouchBodhis();
   };
 
-  clazz.prototype._loadSeasonStyles = function(season) {
-    this._loadSeasonCommonStyle(season.name);
-    this._loadSeasonSpecificStyle(season.name, season.style);
+  clazz.prototype._loadSeasonStyles = function(theme) {
+    this._loadSeasonCommonStyle(theme.name);
+    this._loadSeasonSpecificStyle(theme.name, theme.style);
   };
 
   clazz.prototype._loadSeasonCommonStyle = function(name) {
-    var url = window.PATH + "/seaons/" + name + "/default.css";
+    var url = window.PATH + "/themes/" + name + "/default.css";
     utils.loadStylesheet(url);
     $('body').addClass(name);
   };
 
   clazz.prototype._loadSeasonSpecificStyle = function(name, styleName) {
-    var url = window.PATH + "/seaons/" + name + "/styles/" + styleName + ".css";
+    var url = window.PATH + "/themes/" + name + "/styles/" + styleName + ".css";
     utils.loadStylesheet(url);
     $('body').addClass(name);
   };

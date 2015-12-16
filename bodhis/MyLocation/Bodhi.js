@@ -110,7 +110,11 @@ define(['jquery', 'openlayers/ol', 'stem/BaseBodhi', 'jquery-ui'],
       },
 
       onLocateError: function() {
-        console.error(this.options.nls.failureFinding);
+        alert(this.options.nls.failureFinding);
+        this.placeholder.removeClass('locating');
+        this.placeholder.removeClass('tracking');
+        this.placeholder.removeClass('onLocate');
+        this._destroyGeoLocate();
       },
 
       _destroy: function() {
