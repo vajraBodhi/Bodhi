@@ -17,13 +17,14 @@ define(["jquery", 'stem/utils'], function($, utils) {
     var bodhiFolder = window.PATH + parts.join('/');
 
     defs.push(this.loadBodhiClass(config.uri));
-    defs.push(this.loadBodhiManifest(bodhiFolder));
+    defs.push(this.loadBodhiManifest(bodhiFolder, config.manifest));
 
     $.when.apply($, defs).then(function() {
       var clazz = arguments[0];
       var manifest = arguments[1];
+      config.manifest = manifest;
 
-      that.loadResources(bodhiFolder, manifest).then(function(resources) {
+      that.loadResources(bodhiFolder, config).then(function(resources) {
         var setting = {
           nls: resources.nls,
           causality: resources.causality,
@@ -62,22 +63,27 @@ define(["jquery", 'stem/utils'], function($, utils) {
     return def;
   };
 
-  clazz.prototype.loadBodhiManifest = function(bodhiFolder) {
+  clazz.prototype.loadBodhiManifest = function(bodhiFolder, manifest) {
     var def = $.Deferred();
 
-    return $.getJSON(bodhiFolder + '/manifest.json').then(function(manifest) {
-      return manifest;
-    });
+    if (typeof manifest === 'object') {
+      def.resolve(manifest);
+    } else {
+      $.getJSON(bodhiFolder + '/manifest.json').then(function(m) {
+        def.resolve(m);
+      });
+    }
+    return def;
   };
 
-  clazz.prototype.loadResources = function(bodhiFolder, manifest) {
+  clazz.prototype.loadResources = function(bodhiFolder, config) {
     var defs = [];
     var that = this;
-    var mp = manifest && manifest.properties;
+    var mp = config && config.manifest && config.manifest.properties;
 
-    defs.push(this.loadBodhiTemplate(bodhiFolder, mp && mp.hasUIFile));
+    defs.push(this.loadBodhiTemplate(bodhiFolder, mp && mp.hasUIFile, config.templateString));
     defs.push(this.loadBodhiNls(bodhiFolder, mp && mp.hasUIFile));
-    defs.push(this.loadBodhiCausality(bodhiFolder, mp && mp.hasCausality));
+    defs.push(this.loadBodhiCausality(bodhiFolder, mp && mp.hasCausality, config.causality));
     defs.push(this.loadBodhiStyle(bodhiFolder));
 
     return $.when.apply($, defs).then(function() {
@@ -89,9 +95,11 @@ define(["jquery", 'stem/utils'], function($, utils) {
     });
   };
 
-  clazz.prototype.loadBodhiTemplate = function(bodhiFolder, hasUIFile) {
+  clazz.prototype.loadBodhiTemplate = function(bodhiFolder, hasUIFile, templateString) {
     var def = $.Deferred();
-    if (hasUIFile) {
+    if (templateString) {
+      def.resolve(templateString);
+    }else if (hasUIFile) {
       require(['text!' + bodhiFolder + '/templates/template.html'], function(template) {
         def.resolve(template);
       });
@@ -111,9 +119,11 @@ define(["jquery", 'stem/utils'], function($, utils) {
     return def;
   };
 
-  clazz.prototype.loadBodhiCausality = function(bodhiFolder, hasCausality) {
+  clazz.prototype.loadBodhiCausality = function(bodhiFolder, hasCausality, causality) {
     var def = $.Deferred();
-    if (hasCausality) {
+    if (causality) {
+      def.resolve(causality);
+    }else if (hasCausality) {
       var url = bodhiFolder + '/causality.json';
       $.getJSON(url).then(function(causality) {
         def.resolve(causality);

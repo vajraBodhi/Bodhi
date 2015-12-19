@@ -96,6 +96,9 @@
       //if not set, the framework will check "hasCausality" property to decide the bodhi causality.
       "causality": {},
 
+      "manifest": null or {},
+      "templateString": HTML String or null
+
       //Optional. If not set, the value is true.
       "visible": false,
 
