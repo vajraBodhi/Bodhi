@@ -1,5 +1,7 @@
 var fs = require('fs');
 var path = require('path');
+exec = require('child_process').exec;
+
 if (!fs.existsSync("./output")) {
   fs.mkdirSync('./output');
 }
@@ -18,8 +20,7 @@ for (var i = 0, len = bodhis.length; i < len; i++) {
 }
 
 fs.writeFileSync('../causality.json', JSON.stringify(appCausality));
-  //所有动作完成后，写入appCausality中
-  //然后调用r.js
+exec('node r.js -o build.js');
 
 function addReourceToBConfig(config, folder, resource, ext) {
   var file = folder + resource + '.' + ext;
