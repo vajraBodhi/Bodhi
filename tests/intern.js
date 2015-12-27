@@ -15,7 +15,8 @@ dojoConfig = {
 
 define([], function(){
   return {
-    //basePath:
+    //https://theintern.github.io/intern/#common-config
+    // basePath: '../../',
 
     // The port on which the instrumenting proxy will listen
     proxyPort: 9000,
@@ -78,13 +79,16 @@ define([], function(){
     // supported by the specified AMD loader
     // can be used here
     loaderOptions: {
-      baseUrl: './roots',
+      baseUrl: './src/roots',
       packages: [{
         name: 'stem',
         location: '../stem'
       }, {
         name: 'bodhis',
         location: '../bodhis'
+      }, {
+        name: 'tests',
+        location: '../../tests'
       }],
       map: {
         '*': {
@@ -100,7 +104,7 @@ define([], function(){
 
     // Non-functional test suite(s) to run in each browser
     suites: [
-      // 'tests/unit/client/jimu/jimuTest',
+      'tests/unit/stemTest'//,
       // 'tests/unit/client/widgets/widgetsTest'
     ],
 
