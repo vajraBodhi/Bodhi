@@ -15,6 +15,8 @@ dojoConfig = {
 
 define([], function(){
   return {
+    //basePath:
+
     // The port on which the instrumenting proxy will listen
     proxyPort: 9000,
 
@@ -61,10 +63,12 @@ define([], function(){
     // The desired AMD loader to use when running unit tests
     // (client.html/client.js). Omit to use the default Dojo loader
     loaders: {
+      //When using RequireJS in Node.js, you must use 'requirejs', which actually loads r.js.
+      //The file require.js is for Web browsers only and will not work.
       //relative path from the launcher
-      'host-node': '../../../../client/stemapp/arcgis-js-api/dojo/dojo',
+      'host-node': 'requirejs',
       //relative path to the path of intern installed
-      'host-browser': '../../../client/stemapp/arcgis-js-api/dojo/dojo.js'
+      'host-browser': 'node_modules/requirejs/require.js'
       //default
       //'host-node': 'dojo/dojo', //a Node.js module ID
       //'host-browser': 'node_modules/dojo/dojo.js'
@@ -74,47 +78,22 @@ define([], function(){
     // supported by the specified AMD loader
     // can be used here
     loaderOptions: {
-      // Packages that should be registered with the loader in each testing environment
+      baseUrl: './roots',
       packages: [{
-        name: 'dojo',
-        location: 'client/stemapp/arcgis-js-api/dojo'
+        name: 'stem',
+        location: '../stem'
       }, {
-        name: 'dijit',
-        location: 'client/stemapp/arcgis-js-api/dijit'
-      }, {
-        name: 'dojox',
-        location: 'client/stemapp/arcgis-js-api/dojox'
-      }, {
-        name: 'put-selector',
-        location: 'client/stemapp/arcgis-js-api/put-selector'
-      }, {
-        name: 'xstyle',
-        location: 'client/stemapp/arcgis-js-api/xstyle'
-      }, {
-        name: 'dgrid',
-        location: 'client/stemapp/arcgis-js-api/dgrid'
-      }, {
-        name: 'esri',
-        location: 'client/stemapp/arcgis-js-api/esri'
-      }, {
-        name: 'jimu',
-        location: 'client/stemapp/jimu.js'
-      }, {
-        name: 'themes',
-        location: 'client/stemapp/themes'
-      }, {
-        name: 'libs',
-        location: 'client/stemapp/libs'
-      }, {
-        name: 'dynamic-modules',
-        location: 'client/stemapp/dynamic-modules'
-      }, {
-        name: 'builder',
-        location: 'client/builder'
-      }, {
-        name: 'widgets',
-        location: 'client/stemapp/widgets'
-      }]
+        name: 'bodhis',
+        location: '../bodhis'
+      }],
+      map: {
+        '*': {
+          'jquery': 'jquery-private',
+        },
+        'jquery-private': {
+          'jquery': 'jquery'
+        }
+      }
     },
 
     reporters: ['html'],

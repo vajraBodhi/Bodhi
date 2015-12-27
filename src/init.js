@@ -73,10 +73,6 @@
         	name: 'bodhis',
         	location: '../bodhis'
         }],
-        // paths: {
-        //   'jquery': 'jquery',
-        //   'jqueryui': 'jquery-ui'
-        // },
         map: {
           '*': {
             'jquery': 'jquery-private',
@@ -84,12 +80,7 @@
           'jquery-private': {
             'jquery': 'jquery'
           }
-        }//,
-        // shim: {
-        //   'jqueryui': {
-        //     deps: ['jquery']
-        //   }
-        // }
+        }
       });
       require(['stem/main'], function(stemMain) {
         stemMain.init();
