@@ -1,5 +1,10 @@
 define(["jquery"], function($) {
   var exports = {};
+  exports.lang = {
+    isDefined: function(e) {
+      return e !== null && e !== undefined;
+    }
+  };
   exports.loadCausality = function() {
     return $.getJSON(window.PATH + 'causality.json', {
       url: window.PATH + 'causality.json'
