@@ -1,5 +1,13 @@
 (function(global){
-  global.PATH = location.pathname;
+  // global.PATH = location.pathname;
+  var path = location.pathname;
+  var parts = path.split('/');
+  if (parts.length > 0 && /$\.html|\.htm/.test(parts[parts.length - 1])) {
+    parts.pop();
+    global.PATH = parts.join('/') + '/';
+  } else {
+    global.PATH = parts.join('/');
+  }
   global.stemConfig = {
     layoutId: "main-page"
   };

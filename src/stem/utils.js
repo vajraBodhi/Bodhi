@@ -5,9 +5,10 @@ define(["jquery"], function($) {
       return e !== null && e !== undefined;
     }
   };
-  exports.loadCausality = function() {
-    return $.getJSON(window.PATH + 'causality.json', {
-      url: window.PATH + 'causality.json'
+  exports.loadCausality = function(p) {
+    var path = p || window.PATH;
+    return $.getJSON(path + 'causality.json', {
+      url: path + 'causality.json'
     });
   };
 
