@@ -35,9 +35,10 @@ define([
     },
 
     'loadCausality': function() {
-      var dfd = this.async(3000);
-      window.PATH = '//lzz-pc.chn.esri.com/arcgis/apps/webappbuilder/Bodhi/src/';
-      stemUtils.loadCausality().then(dfd.callback(function(evt) {
+      var dfd = this.async(50000);
+
+      stemUtils.loadCausality('\/\/lzz-pc.chn.esri.com\/arcgis\/apps\/webappbuilder\/Bodhi\/src\/')
+      .then(dfd.callback(function(evt) {
         assert.strictEqual(stemUtils.lang.isDefined(evt), true);
         assert.strictEqual(stemUtils.lang.isDefined(evt.version), true);
         assert.strictEqual(evt.version === 0.1, true);

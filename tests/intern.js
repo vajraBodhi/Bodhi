@@ -3,15 +3,15 @@
 // dojoConfig needs to be defined here, otherwise it's too late to affect the dojo loader api
 /* global dojoConfig */
 /* jshint -W020 */
-dojoConfig = {
-  parseOnLoad: false,
-  async: true,
-  tlmSiblingOfDojo: false,
-  has: {
-    'extend-esri': 1
-  },
-  requestProvider: 'dojo/request/registry'
-};
+// dojoConfig = {
+//   parseOnLoad: false,
+//   async: true,
+//   tlmSiblingOfDojo: false,
+//   has: {
+//     'extend-esri': 1
+//   },
+//   requestProvider: 'dojo/request/registry'
+// };
 
 define([], function(){
   return {
@@ -35,7 +35,7 @@ define([], function(){
     // ID from the Travis CI environment
     // automatically
     capabilities: {
-      'selenium-version': '2.45.0'
+      'selenium-version': '2.48.2'
     },
 
     // Browsers to run integration testing against. Note that version numbers must
@@ -100,7 +100,7 @@ define([], function(){
       }
     },
 
-    reporters: ['html'],
+    reporters: ['Console'],
 
     // Non-functional test suite(s) to run in each browser
     suites: [
@@ -109,10 +109,10 @@ define([], function(){
     ],
 
     // Functional test suite(s) to run in each browser once non-functional tests are completed
-    functionalSuites: [ /* 'myPackage/tests/functional' */ ],
+    functionalSuites: ['tests/functional/loadApp'],
 
     // A regular expression matching URLs to files that should not be included in
     // code coverage analysis
-    excludeInstrumentation: /(?:tests|node_modules|arcgis-js-api)/
+    excludeInstrumentation: /(?:tests|node_modules)/
   };
 });
