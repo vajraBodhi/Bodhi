@@ -104,7 +104,7 @@ define([], function(){
 
     // Non-functional test suite(s) to run in each browser
     suites: [
-      'tests/unit/stemTest'//,
+      // 'tests/unit/stemTest'//,
       // 'tests/unit/client/widgets/widgetsTest'
     ],
 
