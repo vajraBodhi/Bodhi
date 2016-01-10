@@ -6,7 +6,7 @@
   optimizeCss: "standard",
   mainConfigFile: "../init.js",
   removeCombined: false,
-  fileExclusionRegExp: /build\/*|\.git\/*/,
+  fileExclusionRegExp: /build\/*|\.git\/*|tests\/*/,
   modules: [
     {
       name: "stem/main",
