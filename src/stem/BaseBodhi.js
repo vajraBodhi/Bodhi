@@ -21,7 +21,7 @@ define(['jquery', 'jquery-ui'], function($) {
       icon: "",
       folderUrl: "",
       position: null,
-      config: null,
+      causality: null,
       appCausality: null,
       map: null,
       templateString: null,
