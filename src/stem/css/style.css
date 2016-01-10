@@ -1,4 +1,362 @@
+/****************************
+*** 基础样式
+****************************/
+@import url("./normalize.css");
+*,
+ *:before,
+ *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;
+}
+html {
+  font-size: 10px;
+}
+body {
+  font-size: 1.6rem;
+}
+/****************************
+*** 页面样式
+****************************/
 #main-page, #stem-layout-manager{
   width: 100%;
   height: 100%;
 }
+
+/****************************
+*** 通用样式（title, icon）
+****************************/
+/* scrollable */
+.stem-scrollable-horizontal {
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: auto;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -webkit-overflow-scrolling: touch;
+}
+.am-scrollable-vertical {
+  height: 240px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  /*resize: vertical;*/
+}
+/* Border-radius*/
+.stem-square {
+  border-radius: 0;
+}
+.stem-radius {
+  border-radius: 2px;
+}
+.stem-round {
+  border-radius: 1000px;
+}
+.stem-circle {
+  border-radius: 50%;
+}
+/* Display */
+.stem-block {
+  display: block !important;
+}
+.stem-inline {
+  display: inline !important;
+}
+.stem-inline-block {
+  display: inline-block !important;
+}
+.stem-hide {
+  display: none !important;
+  visibility: hidden !important;
+}
+/* vertical/horizonal-align */
+.stem-vertical-align {
+  position: relative;
+  font-size: 0.001px; /*Remove whitespace between child elements when using `inline-block`*/
+}
+.stem-vertical-align:before{
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+.stem-vertical-align-middle,
+.stem-vertical-align-bottom {
+  display: inline-block;
+  font-size: 1.6rem;
+  max-width: 100%;
+}
+.stem-vertical-align-middle {
+  vertical-align: middle;
+}
+.stem-vertical-align-bottom {
+  vertical-align: bottom;
+}
+.stem-center-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.stem-center {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  right: 0;
+  margin: auto;
+  width: 50%;
+  height: 50%;
+}
+
+/* text */
+.stem-ellipsis{
+  word-wrap: normal;
+  /* for IE */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.stem-text-break {
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+.stem-text-nowrap {
+  white-space: nowrap;
+}
+.stem-text-left {
+  text-align: left;
+}
+.stem-text-right {
+  text-align: right;
+}
+.stem-text-center {
+  text-align: center;
+}
+/* Float blocks*/
+.stem-clear-float:before,
+.stem-clear-float:after {
+  content: " ";
+  display: table;
+}
+.stem-clear-float:after {
+  clear: both;
+}
+.stem-float-leading {
+  float: left;
+}
+.stem-float-trailing {
+  float: right;
+}
+.stem-nbfc {
+  overflow: hidden;
+}
+/* margin */
+.jimu-leading-margin0 {
+  margin-left: 0;
+}
+.jimu-leading-margin05 {
+  margin-left: 0.5rem;
+}
+.jimu-leading-margin1 {
+  margin-left: 1rem;
+}
+.jimu-leading-margin12 {
+  margin-left: 1.2em;
+}
+.jimu-leading-margin14 {
+  margin-left: 1.4em;
+}
+.jimu-leading-margin16 {
+  margin-left: 1.6em;
+}
+.jimu-leading-margin18 {
+  margin-left: 1.8rem;
+}
+.jimu-leading-margin2 {
+  margin-left: 2rem;
+}
+.jimu-trailing-margin0 {
+  margin-right: 0;
+}
+.jimu-trailing-margin05 {
+  margin-right: 0.5rem;
+}
+.jimu-trailing-margin1 {
+  margin-right: 1rem;
+}
+.jimu-trailing-margin12 {
+  margin-right: 1.2em;
+}
+.jimu-trailing-margin14 {
+  margin-right: 1.4em;
+}
+.jimu-trailing-margin16 {
+  margin-right: 1.6em;
+}
+.jimu-trailing-margin18 {
+  margin-right: 1.8rem;
+}
+.jimu-trailing-margin2 {
+  margin-right: 2rem;
+}
+/* padding */
+.jimu-leading-padding0 {
+  padding-left: 0;
+}
+.jimu-leading-padding05 {
+  padding-left: 0.5rem;
+}
+.jimu-leading-padding1 {
+  padding-left: 1rem;
+}
+.jimu-leading-padding12 {
+  padding-left: 1.2em;
+}
+.jimu-leading-padding14 {
+  padding-left: 1.4em;
+}
+.jimu-leading-padding16 {
+  padding-left: 1.6em;
+}
+.jimu-leading-padding18 {
+  padding-left: 1.8rem;
+}
+.jimu-leading-padding2 {
+  padding-left: 2rem;
+}
+.jimu-trailing-padding0 {
+  padding-right: 0;
+}
+.jimu-trailing-padding05 {
+  padding-right: 0.5rem;
+}
+.jimu-trailing-padding1 {
+  padding-right: 1rem;
+}
+.jimu-trailing-padding12 {
+  padding-right: 1.2em;
+}
+.jimu-trailing-padding14 {
+  padding-right: 1.4em;
+}
+.jimu-trailing-padding16 {
+  padding-right: 1.6em;
+}
+.jimu-trailing-padding18 {
+  padding-right: 1.8rem;
+}
+.jimu-trailing-padding2 {
+  padding-right: 2rem;
+}
+/* right to left */
+.stem-rtl .stem-float-leading {
+  float: right;
+}
+.stem-rtl .stem-float-trailing {
+  float: left;
+}
+.jimu-leading-margin0 {
+  margin-right: 0;
+}
+.jimu-leading-margin05 {
+  margin-right: 0.5rem;
+}
+.jimu-leading-margin1 {
+  margin-right: 1rem;
+}
+.jimu-leading-margin12 {
+  margin-right: 1.2em;
+}
+.jimu-leading-margin14 {
+  margin-right: 1.4em;
+}
+.jimu-leading-margin16 {
+  margin-right: 1.6em;
+}
+.jimu-leading-margin18 {
+  margin-right: 1.8rem;
+}
+.jimu-leading-margin2 {
+  margin-right: 2rem;
+}
+.jimu-trailing-margin0 {
+  margin-left: 0;
+}
+.jimu-trailing-margin05 {
+  margin-left: 0.5rem;
+}
+.jimu-trailing-margin1 {
+  margin-left: 1rem;
+}
+.jimu-trailing-margin12 {
+  margin-left: 1.2em;
+}
+.jimu-trailing-margin14 {
+  margin-left: 1.4em;
+}
+.jimu-trailing-margin16 {
+  margin-left: 1.6em;
+}
+.jimu-trailing-margin18 {
+  margin-left: 1.8rem;
+}
+.jimu-trailing-margin2 {
+  margin-left: 2rem;
+}
+.jimu-leading-padding0 {
+  padding-right: 0;
+}
+.jimu-leading-padding05 {
+  padding-right: 0.5rem;
+}
+.jimu-leading-padding1 {
+  padding-right: 1rem;
+}
+.jimu-leading-padding12 {
+  padding-right: 1.2em;
+}
+.jimu-leading-padding14 {
+  padding-right: 1.4em;
+}
+.jimu-leading-padding16 {
+  padding-right: 1.6em;
+}
+.jimu-leading-padding18 {
+  padding-right: 1.8rem;
+}
+.jimu-leading-padding2 {
+  padding-right: 2rem;
+}
+.jimu-trailing-padding0 {
+  padding-left: 0;
+}
+.jimu-trailing-padding05 {
+  padding-left: 0.5rem;
+}
+.jimu-trailing-padding1 {
+  padding-left: 1rem;
+}
+.jimu-trailing-padding12 {
+  padding-left: 1.2em;
+}
+.jimu-trailing-padding14 {
+  padding-left: 1.4em;
+}
+.jimu-trailing-padding16 {
+  padding-left: 1.6em;
+}
+.jimu-trailing-padding18 {
+  padding-left: 1.8rem;
+}
+.jimu-trailing-padding2 {
+  padding-left: 2rem;
+}
+/* icon */
+
+/****************************
+*** 通用组件样式
+****************************/
