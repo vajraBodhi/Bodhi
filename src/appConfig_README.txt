@@ -9,6 +9,8 @@
     "style": ,
 
     //This property set the name of layout which registed in manifest of theme.
+    //If developers configured the layout property, the  map, bodhisOnTouch, bodhisInCollection will
+    be override by configuration of specified layout.
     "layout": "layout1"
 
     //Optional. It is the theme version.
@@ -133,7 +135,7 @@
   },
 
   //Bodhis in this section are not loaded by the app, but are controlled by the bodhi(controller bodhi).
-  "bodhiPool": {
+  "bodhinCollection": {
     //Optional. If set, bodhis in the container display in this panel. Otherwise they display in the default panel.
     // Panel must be registered in manifest of theme.
     "panelName": 'OpenStreetPanel',
@@ -154,6 +156,7 @@
 
       //Optional. If not set, use bodhi container's panel;
       //If set, it overrides the container's panel.
+      //If value of panel is string, the string means the panel in theme and the value is the name of panel
       "panel": {
         "uri": "jimu/PanelType1",
         "position": {
