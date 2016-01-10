@@ -8,6 +8,9 @@
     //This property stores all of the theme's styles. The app displays the first style by default.
     "style": ,
 
+    //This property set the name of layout which registed in manifest of theme.
+    "layout": "layout1"
+
     //Optional. It is the theme version.
     "version": "1.1"
   },
@@ -132,18 +135,8 @@
   //Bodhis in this section are not loaded by the app, but are controlled by the bodhi(controller bodhi).
   "bodhiPool": {
     //Optional. If set, bodhis in the container display in this panel. Otherwise they display in the default panel.
-    "panel": {
-      "uri": "jimu/PanelType1",
-      "position": {
-        "left": 0,
-        "top": 0,
-        "right": 0,
-        "bottom": 30,
-        "width": 100,
-        "height": 100,
-        "relativeTo": "map"
-      }
-    },
+    // Panel must be registered in manifest of theme.
+    "panelName": 'OpenStreetPanel',
 
     "ears": [{
       //Can be one or more bodhis.
