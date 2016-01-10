@@ -1,0 +1,15 @@
+{
+  "name": "Docker",
+  "panels": ["SimpleDockerPanel"],
+  "styles": ["default", "black", "green"],
+  "layouts": ["default", "layout1"],
+  "widgets": ["DockerController"],
+  "version": 0.1,
+  "author": "vajraBodhi",
+  "description": "",
+  "copyright": "",
+  "license": "http://www.apache.org/licenses/LICENSE-2.0",
+  "properties": {
+
+  }
+}
