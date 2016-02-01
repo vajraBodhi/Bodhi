@@ -1,8 +1,17 @@
-define(['jquery'], function($) {
+define(['jquery', 'stem/BodhiManager', 'stem/PanelManager'],
+  function($, BodhiManager, PanelManager) {
   var BasePanel = function(options) {
     // this.moveable = options && options.moveable;
     // this.resizeable = options && options.resizeable;
     // this.closeable = options && options.closeable;
+    this.label = options && options.label;
+    this.widgetConfg = options && options.config;
+    this.position = options && options.position;
+    this.map = options && options.map;
+    this.bodhiManager = BodhiManager.getInstance();
+    this.panelManager = PanelManager.getInstance();
+    this.id = options && options.pid;
+
     this.windowState = null;
     this.state = null;
     this.started = false;

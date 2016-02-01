@@ -135,7 +135,7 @@
   },
 
   //Bodhis in this section are not loaded by the app, but are controlled by the bodhi(controller bodhi).
-  "bodhinCollection": {
+  "bodhinController": {
     //Optional. If set, bodhis in the container display in this panel. Otherwise they display in the default panel.
     // Panel must be registered in manifest of theme.
     "panelName": 'OpenStreetPanel',

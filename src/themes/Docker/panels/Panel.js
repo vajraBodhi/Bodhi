@@ -32,9 +32,9 @@ define(['jquery', 'stem/BasePanel'], function($, BasePanel) {
 
   return {
     create: function(options) {
-      var bp = new BasePanel();
+      var bp = new BasePanel(options);
       DockerPanel.prototype = bp;
-      var instance = new DockerPanel(options);
+      var instance = new DockerPanel();
       instance.init();
 
       return instance;
