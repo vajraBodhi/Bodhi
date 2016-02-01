@@ -31,6 +31,7 @@ define(['jquery', 'jquery-ui'], function($) {
     baseClass: null,
 
     _create: function() {
+      this.started = false;
       this.element.addClass(this.baseClass);
       this.postMixInProperties();
       this.element.addClass(this.baseClass).append($(this.options.templateString));
@@ -46,7 +47,7 @@ define(['jquery', 'jquery-ui'], function($) {
       // process self properties
     },
     startup: function() {
-
+      this.started = true;
     },
     postCreate: function() {
 
@@ -61,7 +62,8 @@ define(['jquery', 'jquery-ui'], function($) {
 
       this.element.css(position);
     },
-    _destroy: function() {
+    destroy: function() {
+      this._supperApply(arguments);
       $.empty(this.element);
     }
   });
