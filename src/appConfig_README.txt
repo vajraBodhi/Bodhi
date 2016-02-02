@@ -11,7 +11,7 @@
     //This property set the name of layout which registed in manifest of theme.
     //If developers configured the layout property, the  map, bodhisOnTouch, bodhisInCollection will
     be override by configuration of specified layout.
-    "layout": "layout1"
+    "layout": "layout1" // 目前暂不支持
 
     //Optional. It is the theme version.
     "version": "1.1"

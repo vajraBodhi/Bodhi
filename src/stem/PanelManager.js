@@ -36,6 +36,11 @@ define(['jquery', 'stem/utils'], function($, utils) {
 
       var panel = clazz.create(options);
       panel.setPosition(pConfig.position);
+
+      panel.element.css({
+        display: 'none'
+      });
+
       that.openPanel(panel);
       that.panels.push(panel);
 
@@ -45,6 +50,10 @@ define(['jquery', 'stem/utils'], function($, utils) {
 
   clazz.openPanel = function(panel) {
     panel.startup();
+    panel.element.css({
+      display: ''
+    });
+    panel.state = 'open';
   };
 
   clazz.getInstance = function(params) {

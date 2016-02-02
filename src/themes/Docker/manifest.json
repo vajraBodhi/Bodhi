@@ -2,7 +2,7 @@
   "name": "Docker",
   "panels": ["SimpleDockerPanel"],
   "styles": ["default", "black", "green"],
-  "layouts": ["default", "layout1"],
+  // "layouts": ["default", "layout1"],
   "widgets": ["DockerController"],
   "version": 0.1,
   "author": "vajraBodhi",
