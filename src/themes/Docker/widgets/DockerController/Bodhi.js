@@ -1,40 +1,45 @@
-define(['jquery', 'stem/utils'], function($, utils) {
+define(['jquery', 'stem/utils', 'stem/BaseBodhi', 'jquery-ui'], function($, utils) {
   $.widget('bodhi.DockerController', {
     baseClass: 'stem-widgets-dockercontroller',
     // templateString: '<div>'
     postMixInProperties: function() {
       var ts = '<div class="ctl-cnt">' +
-      '<ul class="itm-ls"></ul>' +
-      '</div>'
+        '<ul class="itm-ls"></ul>' +
+        '</div>';
       this.option('templateString', ts);
     },
 
     postCreate: function() {
-      var this.itemList = $('.itm-ls', this.element);
+      debugger;
+      this.itemList = $('.itm-ls', this.element);
 
       var appCausality = this.option('appCausality');
       if (appCausality && appCausality.bodhiInController) {
         ciCtl = appCausality.bodhiInController;
-        var this.panelConfig = ciCtl.panel;
+        this.panelConfig = ciCtl.panel;
         var iconConfigs = ciCtl.bodhis;
-
-        this._createBodhiIcon(iconConfigs);
+        if (iconConfigs) {
+          this._createBodhiIcon(iconConfigs);
+        }
       }
+      console.log(this);
     },
 
     startup: function() {
-      this._supperApply(arguments);
+      this._superApply(arguments);
     },
 
     _createBodhiIcon: function(list) {
       for (var i = 0, len = list.length; i < len; i++) {
         var ic = list[i];
-        var parts = list.uri.split('/');
+        var parts = ic.uri.split('/');
         parts.pop();
-        var imgUrl = this.option('folderUrl') + (parts.join('/') + '/images/icon.png');
+        var imgUrl = window.PATH + (parts.join('/') + '/images/icon.png');
 
         this.itemList.append($('<li class="itm"><img class="icon" src="' + imgUrl + '"></li>'));
       }
     }
-  })
-})
+  });
+
+  return $.bodhi.DockerController;
+});

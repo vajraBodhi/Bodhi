@@ -1,3 +1,3 @@
 define(['jquery'], function(jquery) {
-	return jquery.noConflict(true);
+	return jquery;//.noConflict(true);
 });

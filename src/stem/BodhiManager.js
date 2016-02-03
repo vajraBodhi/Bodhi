@@ -1,4 +1,4 @@
-define(["jquery", 'stem/utils'], function($, utils) {
+define(["jquery", 'stem/utils', 'stem/BaseBodhi'], function($, utils) {
   var instance = null;
   var clazz = function(params) {
     this.map = params.map;

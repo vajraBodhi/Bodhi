@@ -60,10 +60,11 @@ define(['jquery', 'jquery-ui'], function($) {
         this.element.appendTo('#' + stemConfig.layoutId);
       }
 
+      this.element.css('position', 'absolute');
       this.element.css(position);
     },
     destroy: function() {
-      this._supperApply(arguments);
+      this._superApply(arguments);
       $.empty(this.element);
     }
   });

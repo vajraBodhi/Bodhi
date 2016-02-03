@@ -33,13 +33,13 @@ define(["jquery", "stem/MapManager", "stem/BodhiManager", "stem/utils"],
   };
 
   clazz.prototype._loadSeasonCommonStyle = function(name) {
-    var url = window.PATH + "/themes/" + name + "/default.css";
+    var url = window.PATH + "/themes/" + name + "/common.css";
     utils.loadStylesheet(url);
     $('body').addClass(name);
   };
 
   clazz.prototype._loadSeasonSpecificStyle = function(name, styleName) {
-    var url = window.PATH + "/themes/" + name + "/styles/" + styleName + ".css";
+    var url = window.PATH + "/themes/" + name + "/styles/" + styleName + "/style.css";
     utils.loadStylesheet(url);
     $('body').addClass(name);
   };

@@ -1,6 +1,6 @@
 {
   "theme": {
-    "name": "ordinaryworld",
+    "name": "Docker",
     "style": "black",
     "version": "0.1"
   },
@@ -20,6 +20,14 @@
       "uri": "stem/TouchableBodhiPanel"
     },
     "bodhis": [{
+      "uri": "themes/Docker/widgets/DockerController/Bodhi",
+      "position": {
+        "left": 0,
+        "top": 0,
+        "bottom": 0,
+        "width": 70
+      }
+    }, {
       "uri": "bodhis/HomeButton/Bodhi",
       "position": {
         "left": 8,
@@ -41,7 +49,7 @@
     "domId": "mapPlaceholder",
     "uri": "stem/MapModule",
     "position": {
-      "left": 0,
+      "left": 70,
       "right": 0,
       "top": 0,
       "bottom": 0,
@@ -57,7 +65,24 @@
         "left": 70,
         "bottom": 0
       }
-    }
+    },
+    "bodhis": [{
+      "uri": "bodhis/HomeButton/Bodhi",
+      "position": {
+        "left": 8,
+        "top": 70,
+        "zIndex": 0,
+        "relativeTo": "map"
+      }
+    }, {
+      "uri": "bodhis/MyLocation/Bodhi",
+      "position": {
+        "left": 9,
+        "top": 107,
+        "zIndex": 0,
+        "relativeTo": "map"
+      }
+    }]
   },
   "version": 0.1
 }
